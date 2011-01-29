@@ -97,8 +97,8 @@ XPT divide alias=/ " (/ x y)
 
 XPT do " (do ..)
 (do
-  ((`var^ `init^ `stepper^)` `...more^
-`   (`var^ `init^ `stepper^)` `...more^)
+  ((`var^ `init^` `stepper^)` `...more^
+`   (`var^ `init^` `stepper^)` `...more^)
   (`end-test^` `...end_form^
 `   `end-form^` `...end_form^
    `return-value^)` `...body^
