@@ -81,14 +81,14 @@ XPT copy-tree " (copy-tree tree)
 XPT defmacro " (defmacro name (args) body)
 (defmacro `name^ (`arg^` `...arg^` `arg^` `...arg^)
 `  "`documentation`"^
-  (`body^)` `...body^
-`  (`body^)` `...body^)
+  `body^` `...body^
+`  `body^` `...body^)
 
 XPT defun " (defun name (args) body)
 (defun `name^ (`arg^` `...arg^` `arg^` `...arg^)
 `  "`documentation`"^
-  (`body^)` `...body^
-`  (`body^)` `...body^)
+  `body^` `...body^
+`  `body^` `...body^)
 
 XPT defvar " (defvar name)
 (defvar `name^` `value^)
@@ -156,8 +156,8 @@ XPT _key hidden
 
 XPT lambda " (lambda (args) body)
 (lambda (`arg^` `...arg^` `arg^` `...arg^)
-`  (`body^)` `...body^
-`  (`body^)` `...body^)
+`  `body^` `...body^
+`  `body^` `...body^)
 
 XPT last " (last list)
 (last `list^)
