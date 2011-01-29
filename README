@@ -1,0 +1,84 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3426
+
+These are some Common Lisp snippets for xptemplate.
+
+Screenshot of various snippets with placeholders activated (before most
+of the placeholders have been filled in):
+
+  http://img703.imageshack.us/img703/7780/screenshot10x.png
+
+Of course, as usual, you can use your own colors and colorscheme.
+
+NOTE:
+
+  As of version 1.10, LispXp requires the newest version of xptemplate
+  from SVN or git.
+
+Known issues:
+
+  Due to the limitations of the current version of xptemplate, I've had to use
+  the name "dostar" instead of "do*", "letstar" instead of "let*", etc.  Also,
+  the indentation of certain complex snippets like "defstruct" is not correct.
+
+NOTE:
+
+  I'm new to Lisp, and new to xptemplate, so don't expect the most
+  sophisticated snippets, a religious adherence to the Hyperspec, or even a
+  full set of snippets for every function and macro documented in the
+  Hyperspec.
+
+  These snippets are really mostly just for my own use, but if someone else
+  finds them useful, then that's great.
+
+As of version 1.10, these are the snippets that are included:
+
++                describe        mapc            readbase
+-                divide          mapcan          remf
+*                do              mapcar          remhash
+/                documentation   mapcon          remove
+=                dolist          maphash         remove-if
+/=               dostar          mapl            remove-if-not
+<                dotimes         maplist         remprop
+<=               eighth          member          rest
+>                elt             minus           return
+>=               endp            multiply        reverse
+abs              eq              nconc           rplaca
+acons            eql             nintersection   rplacd
+and              equal           ninth           second
+append           eval            not             set
+apply            fboundp         nreverse        setf
+aref             fifth           nsublis         setq
+array-total-size finish-output   nsubst          seventh
+ash              first           nth             sixth
+assoc            force-output    nthcdr          stringp
+atom             format          null            sublis
+boundp           fourth          numberp         subst
+byte             fresh-line      open            symbolfunction
+byte-position    funcall         or              symbolp
+byte-size        functionp       pairlis         symbolvalue
+car              get             plus            tenth
+cdr              getf            pop             terpri
+clear-output     gethash         prin1           third
+cond             if              prin1-to-string typep
+cons             intersection    princ           union
+consp            lambda          princ-to-string vector
+copy-alist       last            print           vector-pop
+copy-list        ldb             printbase       vector-push
+copy-tree        length          printlength     when
+defconstant      let             printlevel      write
+defmacro         letstar         progn           write-byte
+defparameter     list            push            write-char
+defstruct        listp           pushnew         write-line
+defun            liststar        quote           write-sequence
+defvar           load            rassoc          write-string
+delete           macroexpand     rassoc-if       write-to-string
+delete-if        make-array      rassoc-if-not   zerop
+delete-if-not    make-hash-table read
+
+For more information on this script follow the vim wiki link at the top right of this page.
+
+For more information on xptemplate, see:
+
+http://www.vim.org/scripts/script.php?script_id=2611
+
+
