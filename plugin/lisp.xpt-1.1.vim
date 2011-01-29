@@ -99,11 +99,9 @@ XPT do " (do ..)
 (do
   ((`var^ `init^ `stepper^)` `...more^
 `   (`var^ `init^ `stepper^)` `...more^)
-  (`end-test^
-   `end-form^` `...end_form^
+  (`end-test^` `...end_form^
 `   `end-form^` `...end_form^
-   `return-value^)
-  `body^` `...body^
+   `return-value^)` `...body^
 `  `body^` `...body^)
 
 XPT eighth " (eighth list)
