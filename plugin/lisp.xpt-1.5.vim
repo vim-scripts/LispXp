@@ -25,6 +25,24 @@ XPT * " (+ x y)
 XPT / " (+ x y)
 (/ `:_numbers:^)
 
+XPT = " (= x y)
+(= `number-1^ `number-2^` `more...^` `number^` `more...^)
+
+XPT /= " (/= x y)
+(/= `number-1^ `number-2^` `more...^` `number^` `more...^)
+
+XPT < " (< x y)
+(< `number-1^ `number-2^` `more...^` `number^` `more...^)
+
+XPT <= " (<= x y)
+(<= `number-1^ `number-2^` `more...^` `number^` `more...^)
+
+XPT > " (> x y)
+(> `number-1^ `number-2^` `more...^` `number^` `more...^)
+
+XPT >= " (>= x y)
+(>= `number-1^ `number-2^` `more...^` `number^` `more...^)
+
 XPT abs " (abs number)
 (abs `number^)
 
@@ -355,7 +373,7 @@ XPT set " (set symbol value)
 (set `symbol^ `value^)
 
 XPT setq " (setq variable form)
-(setq `:_var_form:^` `var_form...{{^ `Include:_var_form^` `var_form...^`}}^)
+(setq `:_var_form:^` `more...{{^ `Include:_var_form^` `more...^`}}^)
 
 XPT seventh " (seventh list)
 (seventh `list^)
