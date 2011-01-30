@@ -104,17 +104,25 @@ XPT do " (do ..)
    `return-value^)` `...body^
 `  `body^` `...body^)
 
+XPT dolist " (dolist ...)
+(dolist (`var^ `list-form^` `result-form^)
+  `body^)
+
+XPT dotimes " (dotimes ...)
+(dotimes (`index-var^ `upper-limit-form^` `result-form^)
+  `body^)
+
 XPT eighth " (eighth list)
 (eighth `list^)
 
 XPT eq " (eq x y)
-(eq `object^ `object^)
+(eq `object-1^ `object-2^)
 
 XPT equal " (equal x y)
-(equal `object^ `object^)
+(equal `object-1^ `object-2^)
 
 XPT eql " (eql x y)
-(eql `object^ `object^)
+(eql `object-1^ `object-2^)
 
 XPT eval " (eval form)
 (eval `form^)
@@ -144,7 +152,7 @@ XPT functionp " (functionp object)
 (functionp `object^)
 
 XPT if " (if .. then .. else)
-(if (`test^)
+(if `test^
   `then^
   `else^)
 
