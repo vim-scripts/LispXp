@@ -76,9 +76,12 @@ XPT car " (car list)
 XPT cdr " (cdr list)
 (cdr `list^)
 
+XPT clear-output " (clear-output output-stream)
+(clear-output` `output-stream^)
+
 XPT cond " (cond (test result) ...)
 (cond
-  (`test^ `result^)`) `...^
+  (`test^ `result^)` `...^
 `  (`test^ `result^)` `...^)
 
 XPT cons " (cons object object)
@@ -151,8 +154,14 @@ XPT fboundp " (fboundp symbol)
 XPT fifth " (fifth list)
 (fifth `list^)
 
+XPT finish-output " (finish-output output-stream)
+(finish-output` `output-stream^)
+
 XPT first " (first list)
 (first `list^)
+
+XPT force-output " (force-output output-stream)
+(force-output` `output-stream^)
 
 XPT format " (format destination control-string args)
 (format `destination^ "`control-string^"` `:_args:^)
@@ -195,14 +204,14 @@ XPT _let_args hidden
 `var^ `value^
 
 XPT let " (let (var value) ...)
-(let (`(`:_let_args:^)` `...var_value^
-`      (`:_let_args:^)` `...var_value^)
+(let (`(`:_let_args:^)` `...another_var^
+`      (`:_let_args:^)` `...another_var^)
   `form^` `...form^
   `form^` `...form^)
 
 XPT letstar " (let* (var value) ...)
-(let* (`(`:_let_args:^)` `...var_value^
-`       (`:_let_args:^)` `...var_value^)
+(let* (`(`:_let_args:^)` `...another_var^
+`       (`:_let_args:^)` `...another_var^)
   `form^` `...form^
   `form^` `...form^)
 
@@ -356,6 +365,9 @@ XPT readbase " *READ-BASE*
 
 XPT rest " (rest list)
 (rest `list^)
+
+XPT return " (return result)
+(return `result^)
 
 XPT reverse " (reverse list)
 (reverse `list^)
