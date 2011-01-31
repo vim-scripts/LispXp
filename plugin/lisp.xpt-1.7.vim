@@ -136,6 +136,9 @@ XPT dotimes " (dotimes ...)
 XPT eighth " (eighth list)
 (eighth `list^)
 
+XPT endp " (endp list)
+(endp `list^)
+
 XPT eq " (eq x y)
 (eq `object-1^ `object-2^)
 
@@ -165,6 +168,10 @@ XPT force-output " (force-output output-stream)
 
 XPT format " (format destination control-string args)
 (format `destination^ "`control-string^"` `:_args:^)
+
+XPT _forms hidden
+`form^` `...form^
+`form^` `...form^
 
 XPT fourth " (fourth list)
 (fourth `list^)
@@ -283,7 +290,7 @@ XPT numberp " (numberp object)
 (numberp `object^)
 
 XPT _numbers hidden
-`number^` `...number^` `number^` `...number^
+`number-1^ `number-2^` `...number^` `number^` `...number^
 
 XPT nsublis " (nsublis alist tree)
 (nsublis `alist^ `tree^)
@@ -384,6 +391,9 @@ XPT second " (second list)
 XPT set " (set symbol value)
 (set `symbol^ `value^)
 
+XPT setf " (setf place newvalue)
+(setf `place^ `newvalue^)
+
 XPT setq " (setq variable form)
 (setq `:_var_form:^` `more...{{^ `Include:_var_form^` `more...^`}}^)
 
@@ -428,6 +438,10 @@ XPT union " (union set set)
 
 XPT _var_form hidden
 `variable^ `form^
+
+XPT when " (when ...)
+(when `test^
+  `:_forms:^)
 
 XPT zerop " (zerop object)
 (zerop `object^)
