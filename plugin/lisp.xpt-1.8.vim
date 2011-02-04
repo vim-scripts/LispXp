@@ -55,6 +55,9 @@ XPT append " (append list list)
 XPT apply " (apply function args...)
 (apply `function-object^` `:_args:^)
 
+XPT aref " (aref array subscripts...)
+(aref `array^ `subscript^` `subscript...{{^` `subscript^` `subscript...^`}}^)
+
 XPT _args hidden
 `...args^` `arg^` `...args^
 
@@ -185,6 +188,9 @@ XPT funcall " (funcall functional-object args...)
 XPT functionp " (functionp object)
 (functionp `object^)
 
+XPT get " (get symbol indicator default)
+(get `symbol^ `indicator^ `default^)
+
 XPT if " (if .. then .. else)
 (if `test^
   `then^
@@ -224,6 +230,9 @@ XPT letstar " (let* (var value) ...)
 
 XPT list " (list object ...)
 (list `object^` `...object^` `object^` `...object^)
+
+XPT listp " (listp object...)
+(listp `object^)
 
 XPT liststar " (list* object ...)
 (list* `object^` `...object^` `object^` `...object^)
@@ -369,6 +378,9 @@ XSET direction=ChooseStr( ':input', ':output', ':io', ':probe' )
 
 XPT readbase " *READ-BASE*
 *READ-BASE*
+
+XPT remprop " (remprop symbol indicator)
+(remprop `symbol^ `indicator^)
 
 XPT rest " (rest list)
 (rest `list^)
