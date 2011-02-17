@@ -77,6 +77,9 @@ XPT _args hidden
 XPT array-total-size " (array-total-size array)
 (array-total-size `array^)
 
+XPT ash " (ash integer count)
+(ash `integer^ `count^)
+
 XPT assoc " (assoc item alist)
 (assoc `item^ `alist^` `:_key:^)
 
@@ -88,6 +91,15 @@ XPT _booleans hidden
 
 XPT boundp " (boundp symbol)
 (boundp `symbol^)
+
+XPT byte " (byte size position)
+(byte `size^ `position^)
+
+XPT byte-position " (byte-position bytespec)
+(byte-position `bytespec^)
+
+XPT byte-size " (byte-size bytespec)
+(byte-size `bytespec^)
 
 XPT car " (car list)
 (car `list^)
@@ -136,6 +148,95 @@ XPT defun " (defun name (args) body)
 XPT defparameter " (defparameter name initial-value documentation)
 (defparameter `name^ `initial-value^` "`documentation`"^)
 
+XPT defstruct " (defstruct ...)
+(defstruct `name_and_options...{{^`:defstruct_name_and_options_popup:^`}}^
+`  "`documentation`"^`
+  `slot_description...{{^
+`:defstruct_slot_description:^`
+  `slot_description...^`}}^)
+
+XPT defstruct_conc_name hidden
+(:conc-name `conc-name^)
+
+XPT defstruct_conc_name_option hidden
+ `conc_name_option^
+XSET conc_name_option=ChooseStr( ':conc-name', '(:conc-name)', '(:conc-name conc-name)' )
+XSET conc_name_option|post=build_choice( { ":conc-name" : ":conc-name", "(:conc-name)" : "(:conc-name)", "(:conc-name conc-name)" : "`:defstruct_conc_name:^" } )
+
+XPT defstruct_constructor_name hidden
+(:constructor `constructor-name^)
+
+XPT defstruct_constructor_name_arglist hidden
+(:constructor `constructor-name^ `constructor-arglist^)
+
+XPT defstruct_constructor_option hidden
+ `constructor_option^
+XSET constructor_option=ChooseStr( ':constructor', '(:constructor)', '(:constructor constructor-name)', '(:constructor constructor-name constructor-arglist)' )
+XSET constructor_option|post=build_choice( { ":constructor" : ":constructor", "(:constructor)" : "(:constructor)", "(:constructor constructor-name)" : "`:defstruct_constructor_name:^", "(:constructor constructor-name constructor-arglist)" : "`:defstruct_constructor_name_arglist:^" } )
+
+XPT defstruct_copier_option hidden
+ `copier_option^
+XSET copier_option=ChooseStr( ':copier', '(:copier)', '(:copier copier-name)' )
+XSET copier_option|post=build_choice( { ":copier" : ":copier", "(:copier)" : "(:copier)", "(:copier copier-name)" : "(:copier `copier-name^)" } )
+
+XPT defstruct_include_option hidden
+ (:include `included-structure-name^` `slot_description...{{^`:defstruct_slot_description:^`
+  `slot_description...^`}}^)
+
+XPT defstruct_initial_offset_option hidden
+ (:initial-offset `initial-offset^)
+
+XPT defstruct_name hidden
+`structure-name^
+
+XPT defstruct_name_and_options hidden
+(`structure-name^` `options...{{^` `:defstruct_options:^` `options...^`}}^)
+
+XPT defstruct_name_and_options_popup hidden
+`name_and_options^
+XSET name_and_options=ChooseStr( 'structure-name', 'structure-name and options' )
+XSET name_and_options|post=include_choice( { "structure-name" : "defstruct_name", "structure-name and options" : "defstruct_name_and_options" } )
+
+XPT defstruct_named_option hidden
+ :named
+
+XPT defstruct_options hidden
+`options^
+XSET options=ChooseStr( 'conc-name', 'constructor', 'copier', 'include', 'initial-offset', 'named', 'predicate', 'printer', 'type' )
+XSET options|post=include_choice( { " conc-name" : "defstruct_conc_name_option", " constructor" : "defstruct_constructor_option", " copier" : "defstruct_copier_option", " include" : "defstruct_include_option", " initial-offset" : "defstruct_initial_offset_option", " named" : "defstruct_named_option", " predicate" : "defstruct_predicate_option", " printer" : "defstruct_printer_option", " type" : "defstruct_type_option" } )
+
+XPT defstruct_predicate_option hidden
+ `predicate_option^
+XSET predicate_option=ChooseStr( ':predicate', '(:predicate)', '(:predicate predicate-name)' )
+XSET predicate_option|post=build_choice( { ":predicate" : ":predicate", "(:predicate)" : "(:predicate)", "(:predicate predicate-name)" : "(:predicate `predicate-name^)" } )
+
+XPT defstruct_print_function hidden
+(:print-function` `printer-name^)
+
+XPT defstruct_print_object hidden
+(:print-object` `printer-name^)
+
+XPT defstruct_printer_option hidden
+ `printer_option^
+XSET printer_option=ChooseStr( 'print-object', 'print-function' )
+XSET printer_option|post=include_choice( { "print-object" : "defstruct_print_object", "print-function" : "defstruct_print_function" } )
+
+XPT defstruct_slot_description hidden
+`  `slot_description^
+XSET slot_description=ChooseStr( 'slot-name', '(slot-name ...)' )
+XSET slot_description|post=build_choice( { "  slot-name" : "  `slot-name^", "  (slot-name ...)" : "  `:defstruct_slot_name:^" } )
+
+XPT defstruct_slot_name hidden
+(`slot-name^` `slot-initform^` `slot_options...{{^` `:defstruct_slot_options:^` `slot_options...^`}}^)
+
+XPT defstruct_slot_options hidden
+`slot_options^
+XSET slot_options=ChooseStr( ':type', ':read-only' )
+XSET slot_options|post=build_choice( { " :type" : " :type `slot-type^", " :read-only" : " :read-only `read-only-p^" } )
+
+XPT defstruct_type_option hidden
+ (:type `type^)
+
 XPT defvar " (defvar name documentation)
 (defvar `name^` `value^` "`documentation`"^)
 
@@ -155,6 +256,15 @@ XPT divide alias=/ " (/ x y)
 
 XPT do " (do ..)
 (do
+  ((`var^ `init^` `stepper^)` `...more^
+`   (`var^ `init^` `stepper^)` `...more^)
+  (`end-test^` `...end_form^
+`   `end-form^` `...end_form^
+   `return-value^)` `...body^
+`  `body^` `...body^)
+
+XPT dostar " (dostar ..)
+(do*
   ((`var^ `init^` `stepper^)` `...more^
 `   (`var^ `init^` `stepper^)` `...more^)
   (`end-test^` `...end_form^
@@ -256,6 +366,9 @@ XPT lambda " (lambda (args) body)
 XPT last " (last list)
 (last `list^)
 
+XPT ldb " (ldb bytespec integer)
+(ldb `bytespec^ `integer^)
+
 XPT length " (length list)
 (length `sequence^)
 
@@ -355,6 +468,9 @@ XPT mapcar " (mapcar function args...)
 XPT mapcon " (mapcon function args...)
 (mapcon `function^` `:_args:^)
 
+XPT maphash " (maphash function hash-table)
+(maphash `function^ `hash-table^)
+
 XPT mapl " (mapl function args...)
 (mapl `function^` `:_args:^)
 
@@ -444,8 +560,14 @@ XPT pop " (pop place)
 XPT prin1 " (prin1 object output-stream)
 (prin1 `object^` `output-stream^)
 
+XPT prin1-to-string " (prin1-to-string object)
+(prin1-to-string `object^)
+
 XPT princ " (princ object output-stream)
 (princ `object^` `output-stream^)
+
+XPT princ-to-string " (princ-to-string object)
+(princ-to-string `object^)
 
 XPT print " (print object output-stream)
 (print `object^` `output-stream^)
@@ -669,6 +791,41 @@ XPT vector-push " (vector-push new-element vector)
 XPT when " (when ...)
 (when `test^
   `:_forms:^)
+
+XPT write " (write object keys...)
+(write `object^` `keys...{{^` `:write_keys:^` `keys...^`}}^)
+
+XPT write-byte " (write-byte byte stream)
+(write-byte `byte^ `stream^)
+
+XPT write-char " (write-char character output-stream)
+(write-char `character^` `output-stream^)
+
+XPT write_keys hidden
+`keys^
+XSET keys=ChooseStr( 'array', 'base', 'case', 'circle', 'escape', 'gensym', 'length', 'level', 'lines', 'miser-width', 'pprint-dispatch', 'pretty', 'radix', 'readability', 'right-margin', 'stream' )
+XSET keys|post=build_choice( { " array" : " :array `generalized boolean^", " base" : " :base `radix^", " case" : "`:write_keys_case:^", " circle" : " :circle `generalized boolean^", " escape" : " :escape `generalized boolean^", " gensym" : " :gensym `generalized boolean^", " length" : " :length `nil^", " level" : " :level `nil^", " lines" : " :lines `nil^", " miser-width" : " :miser-width `nil^", " pprint-dispatch" : " :pprint-dispatch `table^", " pretty" : " :pretty `generalized boolean^", " radix" : " radix: `generalized boolean^", " readability" : " :readability `generalized boolean^", " right-margin" : " :right-margin `nil^", " stream" : " :stream `*standard-output*^" } )
+
+XPT write_keys_case hidden
+ :case `case^
+XSET case=ChooseStr( ':upcase', ':downcase', ':capitalize' )
+
+XPT write-line " (write-line string output-stream keys...)
+(write-line `string^` `output-stream^` `keys...{{^` `:write_string_keys:^` `keys...^`}}^)
+
+XPT write-sequence " (write-sequence sequence output-stream keys...)
+(write-sequence `sequence^ `output stream^` `keys...{{^` `:write_string_keys:^` `keys...^`}}^)
+
+XPT write-string " (write-string string output-stream keys...)
+(write-string `string^` `output-stream^` `keys...{{^` `:write_string_keys:^` `keys...^`}}^)
+
+XPT write_string_keys hidden
+`keys^
+XSET keys=ChooseStr( 'start', 'end' )
+XSET keys|post=build_choice( { " start" : " :start `0^", " end" : " :end `nil^" } )
+
+XPT write-to-string " (write-to-string object keys...)
+(write-to-string `object^` `keys...{{^` `:write_keys:^` `keys...^`}}^)
 
 XPT zerop " (zerop object)
 (zerop `object^)
